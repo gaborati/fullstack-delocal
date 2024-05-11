@@ -1,7 +1,5 @@
 <?php
-
-
-global $servername, $username, $password, $database;
+ global $servername, $username, $password, $database;
 require_once 'config.php';
 
 
@@ -21,9 +19,9 @@ $sql_create_table = "CREATE TABLE links (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );";
 
-if ($conn->query($sql_create_table) === TRUE) {
+  if ($conn->query($sql_create_table) === TRUE) {
     echo "Links table successfully created";
-} else {
+    } else {
     echo "Error: " . $conn->error;
 }
 
