@@ -17,8 +17,9 @@ class UserModel {
 
         if ($stmt->execute()) {
             $user_id = $stmt->insert_id;
+            $tokenHandler = new tokenHandler();
             $payload = array("user_id" => $user_id, "email" => $email);
-            $jwt = tokenHandler::encode($payload, "secret_key");
+            $jwt = $tokenHandler::encode($payload);
             return array("message" => "Successful registration and login.", "jwt" => $jwt);
         } else {
             return array("message" => "Error during registration");
@@ -26,6 +27,7 @@ class UserModel {
 
         $stmt->close();
     }
+
 
 
 }
