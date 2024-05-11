@@ -19,7 +19,7 @@ class UserModel {
             $user_id = $stmt->insert_id;
             $tokenHandler = new tokenHandler();
             $payload = array("user_id" => $user_id, "email" => $email);
-            $jwt = $tokenHandler::encode($payload);
+            $jwt = $tokenHandler::encode($payload,"Secret_key");
             return array("message" => "Successful registration and login.", "jwt" => $jwt);
         } else {
             return array("message" => "Error during registration");
@@ -42,7 +42,7 @@ class UserModel {
                 $payload = array(
                     "email" => $user['email']
                 );
-                $jwt = tokenHandler::encode($payload);
+                $jwt = tokenHandler::encode($payload,"Secret_key");
                 return array("message" => "Successful login.", "jwt" => $jwt);
             } else {
                 http_response_code(401);
