@@ -1,4 +1,5 @@
 <?php
+require_once '/Users/gaborattila/Desktop/fullstack-delocal/backend/security/tokenHandler.php';
 
 class UserModel {
     private $conn;
@@ -7,7 +8,8 @@ class UserModel {
         $this->conn = $conn;
     }
 
-    public function registerUser($email, $password) {
+    public function registerUser($email, $password): array
+    {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
         $stmt = $this->conn->prepare($sql);
@@ -24,6 +26,7 @@ class UserModel {
 
         $stmt->close();
     }
+
 
 }
 
