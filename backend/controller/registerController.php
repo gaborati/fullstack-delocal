@@ -1,7 +1,7 @@
 <?php
 
 global $conn;
-require_once '/Users/gaborattila/PhpstormProjects/auth01delocal/backend/user/tokenHandler.php';
+
 require_once '../database/config.php';
 require_once '../model/userModel.php';
 
