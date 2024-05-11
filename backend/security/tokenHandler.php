@@ -21,10 +21,7 @@ class tokenHandler
     public static function decode($jwt)
     {
         list($header, $payload, $signature) = explode(".", $jwt);
-
-
         $secret_key = self::$secret_key;
-
         $expected_signature = base64_encode(hash_hmac("sha256", "$header.$payload", $secret_key, true));
         if ($signature === $expected_signature) {
             return json_decode(base64_decode($payload), true);
