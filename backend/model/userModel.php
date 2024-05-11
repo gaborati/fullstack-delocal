@@ -28,6 +28,34 @@ class UserModel {
         $stmt->close();
     }
 
+
+    public function loginUser($email, $password): array
+    {
+        $sql = "SELECT email, password FROM users WHERE email = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password, $user['password'])) {
+                $payload = array(
+                    "email" => $user['email']
+                );
+                $jwt = tokenHandler::encode($payload, "secret_key");
+                return array("message" => "Successful login.", "jwt" => $jwt);
+            } else {
+                return array("message" => "Incorrect email or password");
+            }
+        } else {
+            return array("message" => "Incorrect email or password");
+        }
+    }
+
+
+
+
 }
 
 ?>
