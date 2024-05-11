@@ -1,17 +1,17 @@
 <?php
-class TokenHandler
+class tokenHandler
 {
     private static $secret_key;
 
-    public static function initializeSecretKey()
+    public static function setSecretKey($key)
     {
-        self::$secret_key = bin2hex(random_bytes(32));
+        self::$secret_key = $key;
     }
 
     public static function encode($payload): string
     {
         if (!self::$secret_key) {
-            self::initializeSecretKey();
+            self::setSecretKey(bin2hex(random_bytes(32)));
         }
 
         $header = base64_encode(json_encode(array("alg" => "HS256", "typ" => "JWT")));
@@ -35,3 +35,5 @@ class TokenHandler
         }
     }
 }
+
+

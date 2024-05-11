@@ -42,7 +42,7 @@ class UserModel {
                 $payload = array(
                     "email" => $user['email']
                 );
-                $jwt = tokenHandler::encode($payload, "secret_key");
+                $jwt = tokenHandler::encode($payload);
                 return array("message" => "Successful login.", "jwt" => $jwt);
             } else {
                 http_response_code(401);

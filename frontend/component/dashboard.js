@@ -49,7 +49,7 @@ function addLink(event) {
                 title: title
             };
 
-            fetch('', {
+            fetch('http://localhost:8000/backend/controller/linkController.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
