@@ -28,7 +28,6 @@ class UserModel {
         $stmt->close();
     }
 
-
     public function loginUser($email, $password): array
     {
         $sql = "SELECT email, password FROM users WHERE email = ?";
@@ -46,9 +45,11 @@ class UserModel {
                 $jwt = tokenHandler::encode($payload, "secret_key");
                 return array("message" => "Successful login.", "jwt" => $jwt);
             } else {
+                http_response_code(401);
                 return array("message" => "Incorrect email or password");
             }
         } else {
+            http_response_code(401);
             return array("message" => "Incorrect email or password");
         }
     }
