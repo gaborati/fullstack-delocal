@@ -24,6 +24,7 @@ class UserModel {
 
         $stmt->close();
     }
+
 }
 
 ?>
