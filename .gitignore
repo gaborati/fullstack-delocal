@@ -1,2 +1,3 @@
 .idea/
 /backend/database/config.php
+.env

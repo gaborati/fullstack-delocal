@@ -1,10 +1,12 @@
 <?php
+require_once '../Env.php';
 
- global $servername, $username, $password, $database;
- require_once 'config.php';
+$env = new Env('../.env');
 
 
- $conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($env->get('DB_SERVERNAME') , $env->get('DB_USERNAME'),$env->get('DB_PASSWORD') ,$env->get('DB_DATABASE'));
+
+
 
  if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

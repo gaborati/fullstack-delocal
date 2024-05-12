@@ -1,14 +1,13 @@
 <?php
-
-require_once '../model/userModel.php';
-
+require_once '../model/UserModel.php';
 session_start();
-include_once '../database/config.php';
-global $conn;
+require_once '../Env.php';
+$env = new Env('../.env');
 
 header("Access-Control-Allow-Origin: http://localhost:63342");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $conn = new mysqli($env->get('DB_SERVERNAME') , $env->get('DB_USERNAME'),$env->get('DB_PASSWORD') ,$env->get('DB_DATABASE'));
     $userModel = new UserModel($conn);
     $input_data = json_decode(file_get_contents("php://input"), true);
     $response = $userModel->loginUser($input_data['email'], $input_data['password']);
