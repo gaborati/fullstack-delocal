@@ -1,6 +1,6 @@
 import {getLinksInfo} from "./linkMethod.js";
 export function getUserData() {
-    fetch('http://localhost:8000/backend/controller/linkController.php', {
+    fetch('http://localhost:8000/backend/controller/userLinkController.php', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

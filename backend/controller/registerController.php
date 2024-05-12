@@ -8,7 +8,7 @@
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$conn = new mysqli($env->get('DB_SERVERNAME'), $env->get('DB_USERNAME'), $env->get('DB_PASSWORD'), $env->get('DB_DATABASE'));
 		$userModel = new UserModel($conn);
-		$response = $userModel->registerUser($_POST['email'], $_POST['password']);
+		$response = $userModel->saveUser($_POST['email'], $_POST['password']);
 		echo json_encode($response);
 	}
 ?>

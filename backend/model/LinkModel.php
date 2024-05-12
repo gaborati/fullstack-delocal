@@ -1,7 +1,7 @@
 <?php
 	
-	require_once '/Users/gaborattila/Desktop/fullstack-delocal/backend/security/tokenHandler.php';
-	require_once '/Users/gaborattila/Desktop/fullstack-delocal/backend/service/LinkService.php';
+	require_once '../security/tokenHandler.php';
+	require_once '../service/LinkService.php';
 	
 	class LinkModel {
 		private $linkService;
@@ -10,15 +10,16 @@
 			$this->linkService = new LinkService($conn);
 		}
 		
-		public function addLink(): array {
+		public function saveLink(): array {
 			return $this->linkService->addLink();
 		}
 		
-		public function getUserLinks(): array {
+		
+		public function getUserInfo(): array {
 			return $this->linkService->getUserLinks();
 		}
 		
-		public function deleteLink($linkId): array {
+		public function removeLink($linkId): array {
 			return $this->linkService->deleteLink($linkId);
 		}
 	
