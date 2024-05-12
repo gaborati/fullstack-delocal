@@ -1,6 +1,6 @@
 <?php
 	
-	require_once '../model/LinkModel.php';
+	require_once '/Users/gaborattila/Desktop/fullstack-delocal/backend/model/LinkModel.php';
 	require_once '../Env.php';
 	
 	$env = new Env('../.env');
