@@ -1,7 +1,7 @@
 document.getElementById("registration-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    var formData = new FormData(event.target);
+   let formData = new FormData(event.target);
 
     fetch("http://localhost:8000/backend/controller/registerController.php", {
         method: "POST",

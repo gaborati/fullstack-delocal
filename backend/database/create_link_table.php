@@ -1,12 +1,7 @@
 <?php
 require_once '../Env.php';
-
 $env = new Env('../.env');
-
-
 $conn = new mysqli($env->get('DB_SERVERNAME') , $env->get('DB_USERNAME'),$env->get('DB_PASSWORD') ,$env->get('DB_DATABASE'));
-
-
 
  if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

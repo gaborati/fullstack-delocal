@@ -53,10 +53,6 @@ class UserModel {
             return array("message" => "Incorrect email or password");
         }
     }
-
-
-
-
 }
 
 ?>
