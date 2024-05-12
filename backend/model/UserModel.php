@@ -1,6 +1,8 @@
 <?php
 require_once '/Users/gaborattila/Desktop/fullstack-delocal/backend/security/tokenHandler.php';
-
+    require_once '../model/LinkModel.php';
+    require_once '../Env.php';
+    
 class UserModel {
     private $conn;
 
@@ -10,6 +12,7 @@ class UserModel {
 
     public function registerUser($email, $password): array
     {
+        $env = new Env('../.env');
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
         $stmt = $this->conn->prepare($sql);
@@ -19,7 +22,7 @@ class UserModel {
             $user_id = $stmt->insert_id;
             $tokenHandler = new tokenHandler();
             $payload = array("user_id" => $user_id, "email" => $email);
-            $jwt = $tokenHandler::encode($payload,"Secret_key");
+            $jwt = $tokenHandler::encode($payload,$env->get('SECRET_KEY'));
             return array("message" => "Successful registration and login.", "jwt" => $jwt);
         } else {
             return array("message" => "Error during registration");
@@ -30,6 +33,7 @@ class UserModel {
 
     public function loginUser($email, $password): array
     {
+        $env = new Env('../.env');
         $sql = "SELECT email, password FROM users WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $email);
@@ -42,7 +46,7 @@ class UserModel {
                 $payload = array(
                     "email" => $user['email']
                 );
-                $jwt = tokenHandler::encode($payload,"Secret_key");
+                $jwt = tokenHandler::encode($payload,$env->get('SECRET_KEY'));
                 return array("message" => "Successful login.", "jwt" => $jwt);
             } else {
                 http_response_code(401);

@@ -11,9 +11,9 @@ class LinkModel {
 
     public function addLink(): array
     {
-
+        $env = new Env('../.env');
         $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
-        $decoded_token = tokenHandler::decode($token, "Secret_key");
+        $decoded_token = tokenHandler::decode($token,$env->get('SECRET_KEY')) ;
         $user_email = $decoded_token['email'];
 
 
@@ -60,6 +60,50 @@ class LinkModel {
 
         return array("message" => "An error occurred");
     }
+    
+    
+    
+    
+    public function getUserLinks(): array
+    {
+        $env = new Env('../.env');
+        $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
+        $decoded_token = tokenHandler::decode($token, $env->get('SECRET_KEY'));
+        $user_email = $decoded_token['email'];
+        $sql_get_user_links = "SELECT * FROM links WHERE user_id IN (SELECT id FROM users WHERE email = ?)";
+        $stmt_get_user_links = $this->conn->prepare($sql_get_user_links);
+        $stmt_get_user_links->bind_param("s", $user_email);
+        $stmt_get_user_links->execute();
+        $result_get_user_links = $stmt_get_user_links->get_result();
+        
+        $links = [];
+        while ($row = $result_get_user_links->fetch_assoc()) {
+            $links[] = $row;
+        }
+        
+        return array("message" => "User links retrieved successfully", "links" => $links);
+    }
+    
+    
+    public function deleteLink($linkId): array
+    {
+        $sql_delete_link = "DELETE FROM links WHERE id = ?";
+        $stmt_delete_link = $this->conn->prepare($sql_delete_link);
+        $stmt_delete_link->bind_param("i", $linkId);
+        $stmt_delete_link->execute();
+        
+        if ($stmt_delete_link->affected_rows > 0) {
+            return array("message" => "Link deleted successfully");
+        } else {
+            return array("message" => "Failed to delete link from database");
+        }
+        
+        $stmt_delete_link->close();
+    }
+
+
+
+
 }
 
 ?>

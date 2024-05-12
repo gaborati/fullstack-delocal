@@ -1,10 +1,9 @@
 <?php
-	
 	require_once '../model/UserModel.php';
-	session_start();
+	
 	require_once '../Env.php';
 	$env = new Env('../.env');
-	
+	session_start();
 	header("Access-Control-Allow-Origin: http://localhost:63342");
 	
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
