@@ -1,6 +1,6 @@
 import{ getUserData } from "./getUserData.js";
 import {addLink} from "./linkMethod.js";
-
+import {searchLink} from "./searchLink.js";
 
 function checkAuthToken() {
     const jwtToken = localStorage.getItem('jwtToken');
@@ -13,7 +13,7 @@ function checkAuthToken() {
         getUserData();
         document.getElementById("searchButton").addEventListener("click", function() {
             const searchKeyword = document.getElementById("searchInput").value;
-            searchLinks(searchKeyword);
+            searchLink(searchKeyword);
         });
     }
 }
@@ -30,24 +30,7 @@ function logout() {
     window.location.replace("login.html");
 }
 
-function searchLinks(keyword) {
-    fetch('http://localhost:8000/backend/controller/searchController.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
-        },
-        body: JSON.stringify({ keyword: keyword })
-    })
-        .then(response => response.json())
-        .then(data => {
 
-            console.log('Search results:', data);
-        })
-        .catch(error => {
-            console.error('Error occurred while searching links:', error);
-        });
-}
 
 
 
