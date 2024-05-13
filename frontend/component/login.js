@@ -27,8 +27,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
             const jwtToken = data.jwt;
             console.log("Received JWT Token:", jwtToken);
             localStorage.setItem('jwtToken', jwtToken);
-
-
+            window.location.replace("http://localhost:8000/frontend/view/dashboard.html");
         })
         .catch(error => {
             console.error('There was a problem with your fetch ', error);

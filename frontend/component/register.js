@@ -1,7 +1,7 @@
 document.getElementById("registration-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-   let formData = new FormData(event.target);
+    let formData = new FormData(event.target);
 
     fetch("http://localhost:8000/backend/controller/registerController.php", {
         method: "POST",
@@ -18,9 +18,7 @@ document.getElementById("registration-form").addEventListener("submit", function
             const jwtToken = data.jwt;
             console.log(jwtToken);
             localStorage.setItem('jwtToken', jwtToken);
-
-            console.log(jwtToken);
-
+            window.location.replace("http://localhost:8000/frontend/view/dashboard.html");
         })
         .catch(error => {
             console.error('There was a problem with your fetch operation:', error);
