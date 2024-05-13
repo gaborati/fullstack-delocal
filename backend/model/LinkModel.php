@@ -22,5 +22,10 @@
 		public function removeLink($linkId): array {
 			return $this->linkService->deleteLink($linkId);
 		}
+		
+		public function getLink($keyword): array
+		{
+			return $this->linkService->searchLinks($keyword);
+		}
 	
 	}

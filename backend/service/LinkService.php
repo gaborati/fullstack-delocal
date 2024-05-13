@@ -100,10 +100,31 @@ class LinkService {
         
         $stmt_delete_link->close();
     }
-
-
-
-
+    
+    
+    public function searchLinks($keyword) {
+        $env = new Env('../.env');
+        $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
+        $decoded_token = tokenHandler::decode($token, $env->get('SECRET_KEY'));
+        $user_email = $decoded_token['email'];
+        
+        $sql = "SELECT * FROM links WHERE user_id = (SELECT id FROM users WHERE email = ?) AND (title LIKE '%$keyword%' OR description LIKE '%$keyword%')";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $user_email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        $links = array();
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $links[] = $row;
+            }
+        }
+        
+        return $links;
+    }
+    
+    
 }
 
 ?>
