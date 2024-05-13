@@ -1,4 +1,4 @@
-import {getLinksInfo} from "./linkMethod.js";
+import { getLinksInfo } from "./linkMethod.js";
 
 export function searchLink(keyword) {
     fetch('http://localhost:8000/backend/controller/searchController.php', {
@@ -11,7 +11,11 @@ export function searchLink(keyword) {
     })
         .then(response => response.json())
         .then(data => {
-
+            // Megjelenítjük a keresési eredményeket ugyanazzal a formátummal, mint az getUserData függvény
+            const searchData = {
+                links: data
+            };
+            getLinksInfo(searchData);
             console.log('Search results:', data);
         })
         .catch(error => {

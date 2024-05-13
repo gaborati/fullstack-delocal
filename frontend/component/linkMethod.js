@@ -55,16 +55,22 @@ export function addLink(event) {
 
 }
 export function getLinksInfo(data) {
+    const linkContainer = document.getElementById('linkContainer');
+
+    linkContainer.innerHTML = '';
+
     if (data.links && Array.isArray(data.links)) {
         data.links.forEach(link => {
-            const linkContainer = document.createElement('div');
-            linkContainer.classList.add('link-container');
+            const linkDiv = document.createElement('div');
+            linkDiv.classList.add('link-container');
 
             const title = document.createElement('h2');
             title.textContent = link.title;
 
-            const url = document.createElement('p');
+            const url = document.createElement('a');
             url.textContent = link.url;
+            url.href = link.url;
+            url.target = "_blank";
 
             const description = document.createElement('p');
             description.textContent = link.description;
@@ -72,17 +78,19 @@ export function getLinksInfo(data) {
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', () => deleteLink(link.id));
-            linkContainer.appendChild(title);
-            linkContainer.appendChild(url);
-            linkContainer.appendChild(description);
-            linkContainer.appendChild(deleteButton);
 
-            document.body.appendChild(linkContainer);
+            linkDiv.appendChild(title);
+            linkDiv.appendChild(url);
+            linkDiv.appendChild(description);
+            linkDiv.appendChild(deleteButton);
+
+            linkContainer.appendChild(linkDiv);
         });
     } else {
-        console.error('No links found , or invalid data format');
+        console.error('No links found, or invalid data format');
     }
 }
+
 
 export function deleteLink(linkId) {
 

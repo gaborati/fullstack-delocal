@@ -8,6 +8,7 @@ function checkAuthToken() {
         window.location.replace("login.html");
     } else {
         showDashboard();
+
         document.getElementById("logoutBtn").addEventListener("click", logout);
         document.getElementById("addLinkForm").addEventListener("submit", addLink);
         getUserData();

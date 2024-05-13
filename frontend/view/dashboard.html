@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Link</title>
+    <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
 <h1>Welcome on Dashboard</h1>
-<form id="addLinkForm">
-    <label for="urlInput">URL:</label>
-    <input type="text" id="urlInput" name="urlInput">
-    <button type="submit">Add Link</button>
-</form>
-<label for="searchInput"></label><input type="text" id="searchInput" placeholder="Search...">
-<button id="searchButton">Search</button>
-
-
-  <div id="linkList"></div>
-
-
+<main>
+    <div id="linkContainer"></div>
+    <form id="addLinkForm">
+        <label for="urlInput"></label>
+        <input type="text" id="urlInput" name="urlInput" placeholder="Add your Url...">
+        <button type="submit">Add Link</button>
+    </form>
+    <div id="searchContainer">
+        <label for="searchInput"></label>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchButton">Search</button>
+    </div>
+</main>
+<div id="linkList"></div>
 <script type="module" src="../component/dashboard.js"></script>
 </body>
 </html>
