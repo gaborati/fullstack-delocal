@@ -1,6 +1,5 @@
 <?php
 	require_once '../model/UserModel.php';
-	
 	require_once '../Env.php';
 	$env = new Env('../.env');
 	session_start();
