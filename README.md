@@ -55,8 +55,8 @@ I had to make a web application where the user can log in and register and they 
 3. Set database connection details in .env to desired values
 4. In the backend you need to navigate the database folder , to create tables with the following commands.
 - ```sql
+    php create_user_table.php
      php create_link_table.php
-     php create_user_table.php
      ```
    
 5. Then you need to navigate back to the project root and run the following command in the terminal.
