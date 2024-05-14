@@ -1,4 +1,5 @@
 <?php
+	//started to implement the logic for the dynamic secret key
 require_once '../security/tokenHandler.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['jwtToken'])) {
     $jwtToken = $_POST['jwtToken'];

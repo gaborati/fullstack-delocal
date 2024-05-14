@@ -1,7 +1,6 @@
 <?php
 	require_once '../model/LinkModel.php';
 	require_once '../Env.php';
-	
 	$env = new Env('../.env');
 	
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_AUTHORIZATION'])) {

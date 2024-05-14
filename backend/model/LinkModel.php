@@ -1,5 +1,4 @@
 <?php
-	
 	require_once '../security/tokenHandler.php';
 	require_once '../service/LinkService.php';
 	
