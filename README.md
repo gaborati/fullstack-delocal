@@ -39,9 +39,16 @@ I had to make a web application where the user can log in and register and they 
 
 <h2 id="getting-started">Getting Started</h2>
 
-0. Create local database with the following commands in your terminal
-   mysql -u db_user -p
-   CREATE DATABASE db_name;
+0.**Create MySQL Database**
+   - Install MySQL if its not already installed.
+   - Create a new database on the MySQL server in your terminal using the following command:
+     - ```sql
+     mysql -u db_user -p
+     ```
+   - ```sql
+     CREATE DATABASE your_database_name;
+     ```
+
 
 1. Clone the repo
 2. In backend folder copy and paste .env.example, rename to .env
