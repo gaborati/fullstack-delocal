@@ -53,13 +53,20 @@ I had to make a web application where the user can log in and register and they 
 1. Clone the repo
 2. In backend folder copy and paste .env.example, rename to .env
 3. Set database connection details in .env to desired values
-4. In backend you need to navigate the database folder , to create tables with the following commands.
-   php create_link_table.php
-   php create_user_table.php
+4. In the backend you need to navigate the database folder , to create tables with the following commands.
+- ```sql
+     php create_link_table.php
+     php create_user_table.php
+     ```
+   
 5. Then you need to navigate back to the project root and run the following command in the terminal.
-   php -S localhost:8000
-6. After that open the  
-localhost:8000/frontend/view/register.html  the  browser.
+- ```sql
+    php -S localhost:8000 
+  ```
+6. After that open the  ```sql
+   localhost:8000/frontend/view/register.html
+  ```   the  browser.
+  ```
 
 <h3 id="prerequisites">Prerequisites</h3>
 
