@@ -6,7 +6,7 @@
 
 <h2 id="about-the-project">About The Project</h2>
 
-I had to make a web application where the user can log in and register and they can save their favorite links. I didn't use any framework for the task. I started the task with authentication where I used JWT tokens authentication, I connected the backend to the database so it communicates through  API-s with the frontend.Unfortunately, in the end, I noticed that my logic used to extract the data does not work for all links, because I solved this task from Frontend and so I can't get some link data due to Cors-Policy.In my code I left the console.logs() for informational reasons.
+I had to make a web application where the user can log in and register and they can save their favorite links. I didn't use any framework for the task. I started the task with authentication where I used JWT tokens authentication, I connected the backend to the database so it communicates through  API-s with the frontend.Unfortunately, in the end, I noticed that my logic used to extract the data does not work for all links, because I solved this task from Frontend and so I can't get some link data due to Cors-Policy.In my code I left the console.logs() for informational reasons. The project run with the PHP built-in web sevrer.
 
 <details>
   <summary>Table of Contents</summary>
@@ -39,12 +39,20 @@ I had to make a web application where the user can log in and register and they 
 
 <h2 id="getting-started">Getting Started</h2>
 
-0. Create local database
-1. Clone repo
-2. In sp-backend folder copy and paste .env.example, rename to .env
+0. Create local database with the following commands in your terminal
+   mysql -u db_user -p
+   CREATE DATABASE db_name;
+
+1. Clone the repo
+2. In backend folder copy and paste .env.example, rename to .env
 3. Set database connection details in .env to desired values
-4. 
-5. 
+4. In backend you need to navigate the database folder , to create tables with the following commands.
+   php create_link_table.php
+   php create_user_table.php
+5. Then you need to navigate back to the project root and run the following command in the terminal.
+   php -S localhost:8000
+6. After that open the  
+localhost:8000/frontend/view/register.html  the  browser.
 
 <h3 id="prerequisites">Prerequisites</h3>
 
@@ -59,6 +67,8 @@ PHP development environment: PHP,MySQL .
 1. User registration
 2. User login
 3. User authentication and authorization
+4. Add Link logic
+5. Delete Link logic
 
 
 
@@ -68,6 +78,8 @@ PHP development environment: PHP,MySQL .
 1. User signup
 2. User login
 3. User dashboard
+4. Add Link
+5. Delete Link
 
 
 
