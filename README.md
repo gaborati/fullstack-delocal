@@ -63,10 +63,11 @@ I had to make a web application where the user can log in and register and they 
 - ```sql
     php -S localhost:8000 
   ```
-6. After that open the  ```sql
+6. After that open the  following link in the browser.
+- ```sql
    localhost:8000/frontend/view/register.html
-  ```   the  browser.
-  ```
+  ```   
+  
 
 <h3 id="prerequisites">Prerequisites</h3>
 
