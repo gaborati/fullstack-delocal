@@ -1,13 +1,7 @@
 <?php
-
 require_once '../security/tokenHandler.php';
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['jwtToken'])) {
-
     $jwtToken = $_POST['jwtToken'];
-
-
     try {
 
         $decodedToken = tokenHandler::decode($jwtToken, "secret_key");

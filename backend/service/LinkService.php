@@ -15,8 +15,6 @@ class LinkService {
         $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
         $decoded_token = tokenHandler::decode($token,$env->get('SECRET_KEY')) ;
         $user_email = $decoded_token['email'];
-
-
         $input_data = json_decode(file_get_contents("php://input"), true);
         if (!isset($input_data['url']) || !isset($input_data['imageUrl']) || !isset($input_data['description']) || !isset($input_data['title'])) {
             return array("message" => "Missing data");
