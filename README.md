@@ -56,6 +56,12 @@ I had to make a web application where the user can log in and register and they 
      sudo apt install php-cli
 
      ```
+  If mysqli not installed use the following command in your terminal.
+  - ```sql
+     sudo apt-get install php-mysqli
+
+     ```
+ 
 2. In backend folder copy and paste .env.example, rename to .env
 3. Set database connection details in .env to desired values
 4. In the backend you need to navigate the database folder , to create tables with the following commands.
