@@ -1,6 +1,6 @@
 <?php
 
-require_once '/Users/gaborattila/Desktop/fullstack-delocal/backend/security/tokenHandler.php';
+require_once './backend/security/tokenHandler.php';
 
 class LinkService {
     private $conn;

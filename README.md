@@ -43,7 +43,7 @@ I had to make a web application where the user can log in and register and they 
    - Install MySQL if its not already installed.
    - Create a new database on the MySQL server in your terminal using the following command:
    - ```sql
-     mysql -u db_user -p
+     mysql -u Your_DB_Username -p
      ```
 - ```sql
   CREATE DATABASE your_database_name;
@@ -55,7 +55,7 @@ I had to make a web application where the user can log in and register and they 
 3. Set database connection details in .env to desired values
 4. In the backend you need to navigate the database folder , to create tables with the following commands.
 - ```sql
-    php create_user_table.php
+     php create_user_table.php
      php create_link_table.php
      ```
    
