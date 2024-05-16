@@ -1,7 +1,7 @@
 <?php
-require_once './backend/security/tokenHandler.php';
-    require_once './backend/service/LinkService.php';
-    require_once '../Env.php';
+    require_once dirname(__DIR__) . '/security/tokenHandler.php';
+    require_once dirname(__DIR__) . '/service/LinkService.php';
+    require_once dirname(__DIR__) . '/Env.php';
     
 class UserService {
     private $conn;

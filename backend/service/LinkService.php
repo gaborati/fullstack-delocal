@@ -1,6 +1,6 @@
 <?php
-
-require_once './backend/security/tokenHandler.php';
+    
+    require_once dirname(__DIR__) . '/security/tokenHandler.php';;
 
 class LinkService {
     private $conn;
