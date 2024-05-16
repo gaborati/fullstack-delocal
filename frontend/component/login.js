@@ -6,7 +6,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
    let password = document.getElementById("password").value;
     console.log(email)
 
-    fetch("http://localhost:8000/backend/controller/loginController.php", {
+    fetch("/backend/controller/loginController.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
             const jwtToken = data.jwt;
             console.log("Received JWT Token:", jwtToken);
             localStorage.setItem('jwtToken', jwtToken);
-            window.location.replace("http://localhost:8000/frontend/view/dashboard.html");
+            window.location.replace("/frontend/view/dashboard.html");
         })
         .catch(error => {
             console.error('There was a problem with your fetch ', error);

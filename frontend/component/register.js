@@ -3,7 +3,7 @@ document.getElementById("registration-form").addEventListener("submit", function
 
     let formData = new FormData(event.target);
 
-    fetch("http://localhost:8000/backend/controller/registerController.php", {
+    fetch("/backend/controller/registerController.php", {
         method: "POST",
         body: formData
     })
@@ -18,7 +18,7 @@ document.getElementById("registration-form").addEventListener("submit", function
             const jwtToken = data.jwt;
             console.log(jwtToken);
             localStorage.setItem('jwtToken', jwtToken);
-            window.location.replace("http://localhost:8000/frontend/view/dashboard.html");
+            window.location.replace("/frontend/view/dashboard.html");
         })
         .catch(error => {
             console.error('There was a problem with your fetch operation:', error);

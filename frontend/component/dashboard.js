@@ -32,9 +32,4 @@ function logout() {
 }
 
 
-
-
-
-
-
 window.onload = checkAuthToken;

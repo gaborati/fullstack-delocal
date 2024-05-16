@@ -62,15 +62,11 @@ class LinkService {
     
     
     
-    public function getUserLinks(): array
+    public function getUserLinks($userEmail): array
     {
-        $env = new Env('../.env');
-        $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
-        $decoded_token = tokenHandler::decode($token, $env->get('SECRET_KEY'));
-        $user_email = $decoded_token['email'];
         $sql_get_user_links = "SELECT * FROM links WHERE user_id IN (SELECT id FROM users WHERE email = ?)";
         $stmt_get_user_links = $this->conn->prepare($sql_get_user_links);
-        $stmt_get_user_links->bind_param("s", $user_email);
+        $stmt_get_user_links->bind_param("s", $userEmail);
         $stmt_get_user_links->execute();
         $result_get_user_links = $stmt_get_user_links->get_result();
         
@@ -80,6 +76,7 @@ class LinkService {
         }
         
         return array("message" => "User links retrieved successfully", "links" => $links);
+        
     }
     
     

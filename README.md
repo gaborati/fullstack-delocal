@@ -41,7 +41,7 @@ I had to make a web application where the user can log in and register and they 
 
 0.**Create MySQL Database**
    - Install MySQL if its not already installed.
-   - Create a new database on the MySQL server in your terminal using the following command:
+   - Create a new database on the MySQL server in your computer terminal using the following command:
    - ```sql
      mysql -u Your_DB_Username -p
      ```

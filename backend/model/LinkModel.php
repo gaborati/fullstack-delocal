@@ -14,8 +14,8 @@
 		}
 		
 		
-		public function getUserInfo(): array {
-			return $this->linkService->getUserLinks();
+		public function getUserInfo($email): array {
+			return $this->linkService->getUserLinks($email);
 		}
 		
 		public function removeLink($linkId): array {
@@ -28,3 +28,4 @@
 		}
 	
 	}
+	

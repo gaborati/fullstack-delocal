@@ -1,6 +1,6 @@
 import { getLinksInfo } from "./linkMethod.js";
 export function searchLink(keyword) {
-    fetch('http://localhost:8000/backend/controller/searchController.php', {
+    fetch('/backend/controller/searchController.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
