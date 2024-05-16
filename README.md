@@ -51,6 +51,11 @@ I had to make a web application where the user can log in and register and they 
 
 
 1. Clone the repo
+2. install php in your ide  with the following command if its not installed .
+- ```sql
+     sudo apt install php-cli
+
+     ```
 2. In backend folder copy and paste .env.example, rename to .env
 3. Set database connection details in .env to desired values
 4. In the backend you need to navigate the database folder , to create tables with the following commands.
